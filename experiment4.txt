@@ -1,0 +1,92 @@
+SQL> create table Person(
+  2  PERSON_ID NUMBER(15),
+  3  FNAME VARCHAR(20),
+  4  LNAME VARCHAR(20),
+  5  CITY VARCHAR(20),
+  6  SALARY NUMBER(15));
+
+Table created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 1
+Enter value for fname: SNEHA
+Enter value for lname: SHETH
+Enter value for city: RAJKOT
+Enter value for salary: 10000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('1','SNEHA','SHETH','RAJKOT','10000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 2
+Enter value for fname: PUJA
+Enter value for lname: PARMAR
+Enter value for city: AHEMDABAD
+Enter value for salary: 2000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('2','PUJA','PARMAR','AHEMDABAD','2000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 3
+Enter value for fname: RIYA
+Enter value for lname: GAJAR
+Enter value for city: PUNE
+Enter value for salary: 8000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('3','RIYA','GAJAR','PUNE','8000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 4
+Enter value for fname: SANDIP
+Enter value for lname: JADEJA
+Enter value for city: PUNE
+Enter value for salary: 5000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('4','SANDIP','JADEJA','PUNE','5000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 5
+Enter value for fname: ALPESH
+Enter value for lname: PRAJAPATI
+Enter value for city: MUMBAI
+Enter value for salary: 20000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('5','ALPESH','PRAJAPATI','MUMBAI','20000')
+
+1 row created.
+
+SQL> SELECT* FROM PERSON;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         1 SNEHA                SHETH                RAJKOT                     
+     10000                                                                      
+                                                                                
+         2 PUJA                 PARMAR               AHEMDABAD                  
+      2000                                                                      
+                                                                                
+         3 RIYA                 GAJAR                PUNE                       
+      8000                                                                      
+                                                                                
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         4 SANDIP               JADEJA               PUNE                       
+      5000                                                                      
+                                                                                
+         5 ALPESH               PRAJAPATI            MUMBAI                     
+     20000                                                                      
+                                                                                
+
+SQL> SPOOL OFF;
