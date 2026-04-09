@@ -590,4 +590,145 @@ Enter value for maxsal: 9000
 old   1: INSERT INTO JOB VALUES('&JOBID','&JOBNAME',&MINSAL,&MAXSAL)
 new   1: INSERT INTO JOB VALUES('FI_ACC','ACCOUNT',4200,9000)
 
-1 row created.                                                     
+1 row created.
+
+INSERT INTO JOB VALUES ('LEC', 'Lecturer', 6000, 17000);
+INSERT INTO JOB VALUES ('COMP_OP', 'Computer Operator', 1500, 3000);
+
+SELECT * FROM JOB WHERE MIN_SAL > 4000;
+
+JOB_ID     JOB_NAME             MIN_SAL    MAX_SAL
+---------- -------------------- ---------- ----------
+MK_MGR     Marketing Manager          9000      15000
+FI_MGR     Finance Manager            8200      12000
+FI_ACC     Account                    4200       9000
+LEC        Lecturer                   6000      17000
+
+SELECT A_NO, AMOUNT 
+FROM DEPOSIT 
+WHERE DATE BETWEEN '01-JAN-06' AND '25-JUL-06';
+
+     A_NO     AMOUNT
+---------- ----------
+       101       7000
+       102       5000
+       103       6500
+UPDATE item_master SET QUALITY = 'Verygood' WHERE QUALITY = 'Good';
+
+2 rows updated.
+DELETE FROM item_master WHERE PRICE = 50;
+
+1 row updated.
+SELECT * FROM ITEM_MASTER;
+ID NAME            TYPE            PRICE QUALITY      ITEM_PACK
+-- --------------- ---------- ---------- --------     ---------
+I1 Dairymilk       Chocolate         500 Verygood     12-AUG-00
+I2 Kajukatri       Mithai           1000 Verygood     15-JAN-16
+I3 Pizza           Fastfood          350 Average      20-FEB-15
+I5 Vanilla_cack    Bakery           2000 Verygood     01-JAN-16
+
+CREATE TABLE Cust_master (
+    CUST_NO VARCHAR2(5) PRIMARY KEY,
+    CUST_NAME VARCHAR2(20),
+    ADDRESS1 VARCHAR2(30),
+    CITY VARCHAR2(20),
+    STATE VARCHAR2(20),
+    PH_NO VARCHAR2(10)
+);
+
+INSERT INTO Cust_master VALUES ('C1', 'Priya', 'RingRoad', 'Ahmedabad', 'Gujarat', '8989878548');
+INSERT INTO Cust_master VALUES ('C2', 'Puja', 'Lajpat Nager', 'Banaras', 'UP', '7898456213');
+INSERT INTO Cust_master VALUES ('C3', 'Ankit', 'Borivali', 'Mumbai', 'Maharashtra', '7885984251');
+INSERT INTO Cust_master VALUES ('C4', 'Ravi', 'VajdiRoad', 'Delhi', 'Delhi', '7898452034');
+INSERT INTO Cust_master VALUES ('C5', 'Alpa', 'Jamanager Road', 'Ahmedabad', 'Gujarat', '7465241589');
+
+UPDATE Cust_master 
+SET ADDRESS1 = 'CG Road' 
+WHERE CUST_NAME = 'Priya';
+
+1 row updated.
+
+DELETE FROM Cust_master 
+WHERE PH_NO = '7898452034';
+
+1 row deleted.
+SELECT * FROM CUST_MASTER;
+CUST_ CUST_NAME    ADDRESS1             CITY            STATE       PH_NO
+----- ----------   -------------------- --------------- ----------  ----------
+C1    Priya        CG Road              Ahmedabad       Gujarat     8989878548
+C2    Puja         Lajpat Nager         Banaras         UP          7898456213
+C3    Ankit        Borivali             Mumbai          Maharashtra 7885984251
+C5    Alpa         Jamanager Road       Ahmedabad       Gujarat     7465241589
+
+CREATE TABLE Person (
+    PERSON_ID NUMBER(5) PRIMARY KEY,
+    FNAME VARCHAR2(20),
+    LNAME VARCHAR2(20),
+    CITY VARCHAR2(20),
+    SALARY NUMBER(10, 2)
+);
+
+INSERT INTO Person VALUES (1, 'Sneha', 'Sheth', 'Rajkot', 10000);
+INSERT INTO Person VALUES (2, 'Puja', 'Parmar', 'Ahmedabad', 2000);
+INSERT INTO Person VALUES (3, 'Riya', 'Gajar', 'Pune', 8000);
+INSERT INTO Person VALUES (4, 'Sandip', 'Jadeja', 'Pune', 5000);
+INSERT INTO Person VALUES (5, 'Alpesh', 'Prajapati', 'Mumbai', 20000);
+
+UPDATE Person 
+SET CITY = 'Kolkata' 
+WHERE FNAME = 'Sandip';
+1 row updated.
+
+SELECT * 
+FROM Person 
+WHERE SALARY > 6000;
+
+ PERSON_ID FNAME      LNAME      CITY           SALARY
+---------- ---------- ---------- ---------- ----------
+         1 Sneha      Sheth      Rajkot          10000
+         3 Riya       Gajar      Pune             8000
+         5 Alpesh     Prajapati  Mumbai          20000
+CREATE TABLE Bank_Branch (
+    BRANCH_ID VARCHAR2(5) PRIMARY KEY,
+    BRANCH_NAME VARCHAR2(20),
+    BRANCH_ADDRESS VARCHAR2(30),
+    BRANCH_CITY VARCHAR2(20),
+    BRANCH_STATE VARCHAR2(20),
+    BRANCH_OPEN_DATE DATE
+);
+
+INSERT INTO Bank_Branch VALUES ('B001', 'BOI', 'JagnathRoad', 'Rajkot', 'Gujarat', '22-MAR-2015');
+INSERT INTO Bank_Branch VALUES ('B002', 'SBI', 'Boriwali Road', 'Mumbai', 'Maharashtra', '12-JAN-2000');
+INSERT INTO Bank_Branch VALUES ('B003', 'HDFC', 'AgraRoad', 'Agra', 'U.P', '04-FEB-1998');
+INSERT INTO Bank_Branch VALUES ('B004', 'DenaBank', 'CGRoad', 'Ahmedabad', 'Gujarat', '20-SEP-2012');
+INSERT INTO Bank_Branch VALUES ('B005', 'ICICI', 'MajavdiRoad', 'Junagadh', 'Gujarat', '07-MAY-2011');
+
+SELECT * FROM Bank_Branch ORDER BY BRANCH_NAME;
+
+BRANCH_ID BRANCH_NAME BRANCH_ADDRESS  BRANCH_CITY     BRANCH_STATE BRANCH_OPEN_DATE
+--------- ----------- --------------- --------------- ------------ ----------------
+B001      BOI         JagnathRoad     Rajkot          Gujarat      22-MAR-15
+B004      DenaBank    CGRoad          Ahmedabad       Gujarat      20-SEP-12
+B003      HDFC        AgraRoad        Agra            U.P          04-FEB-98
+B005      ICICI       MajavdiRoad     Junagadh        Gujarat      07-MAY-11
+B002      SBI         Boriwali Road   Mumbai          Maharashtra  12-JAN-00
+
+SELECT BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY FROM Bank_Branch;
+
+BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY
+-------------------- ------------------------------ --------------------
+BOI                  JagnathRoad                    Rajkot
+SBI                  Boriwali Road                  Mumbai
+HDFC                 AgraRoad                       Agra
+DenaBank             CGRoad                         Ahmedabad
+ICICI                MajavdiRoad                    Junagadh
+
+SELECT SUM(AMOUNT) FROM DEPOSIT;
+SUM(AMOUNT)
+-----------
+      28700
+
+SELECT COUNT(*) FROM CUSTOMERS;
+  COUNT(*)
+----------
+        10
